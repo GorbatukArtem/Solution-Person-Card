@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@angular/platform-server": "^14.1.0",
+    "@nguniversal/express-engine": "^14.0.3",
+    "@nguniversal/module-map-ngfactory-loader": "^7.1.1",
+    "ts-loader": "^9.3.1"
+  }
+}
