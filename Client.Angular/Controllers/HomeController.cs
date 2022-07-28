@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Logic.Content.Interfaces;
+using Logic.Content.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Client.Angular.Controllers
 {
@@ -6,17 +8,23 @@ namespace Client.Angular.Controllers
     [Route("[controller]")]
     public class HomeController : ControllerBase
     {
+        private readonly IServiceHome serviceHome;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IServiceHome serviceHome, ILogger<HomeController> logger)
         {
+            this.serviceHome = serviceHome;
             _logger = logger;
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<HomeModel> Get()
         {
-            return Enumerable.Empty<string>();
+            var home = await serviceHome.GetAsync();
+
+            _logger.LogInformation("Home was successfully created.");
+
+            return home;
         }
     }
 }

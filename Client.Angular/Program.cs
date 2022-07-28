@@ -1,3 +1,9 @@
+using Database.Contexts;
+using Logic.Content.Interfaces;
+using Logic.Content.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 namespace Client.Angular
 {
     public class Program
@@ -7,6 +13,15 @@ namespace Client.Angular
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddControllersWithViews();
+
+            //var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            //builder.Services.AddDbContext<DbContextPersonalCard>(options => options.UseSqlServer(connectionString));
+            //builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+            //builder.Services
+            //    .AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<DbContextPersonalCard>();
+
+            builder.Services.AddScoped<IServiceHome, ServiceHome>();
 
             var app = builder.Build();
 
