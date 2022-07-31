@@ -4,6 +4,7 @@ using Database.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.Migrations
 {
     [DbContext(typeof(DbContextPersonalCard))]
-    partial class DbContextPersonalCardModelSnapshot : ModelSnapshot
+    [Migration("20220729184955_Change003")]
+    partial class Change003
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,27 +34,11 @@ namespace Database.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name")
-                        .IsUnique();
-
-                    b.ToTable("Genders", "dbo");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Man"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Woman"
-                        });
+                    b.ToTable("Gender");
                 });
 
             modelBuilder.Entity("Database.Models.Person", b =>
@@ -98,7 +84,6 @@ namespace Database.Migrations
                             Birth = new DateTime(1596, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Death = new DateTime(1645, 7, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Михаил",
-                            GenderId = 1,
                             LastName = "Романов",
                             MiddleName = "Федорович"
                         },
@@ -108,7 +93,6 @@ namespace Database.Migrations
                             Birth = new DateTime(1629, 3, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Death = new DateTime(1676, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Алексей",
-                            GenderId = 1,
                             LastName = "Романов",
                             MiddleName = "Михайлович"
                         });

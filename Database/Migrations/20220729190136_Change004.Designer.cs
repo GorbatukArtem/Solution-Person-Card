@@ -4,6 +4,7 @@ using Database.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.Migrations
 {
     [DbContext(typeof(DbContextPersonalCard))]
-    partial class DbContextPersonalCardModelSnapshot : ModelSnapshot
+    [Migration("20220729190136_Change004")]
+    partial class Change004
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,7 +100,6 @@ namespace Database.Migrations
                             Birth = new DateTime(1596, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Death = new DateTime(1645, 7, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Михаил",
-                            GenderId = 1,
                             LastName = "Романов",
                             MiddleName = "Федорович"
                         },
@@ -108,7 +109,6 @@ namespace Database.Migrations
                             Birth = new DateTime(1629, 3, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Death = new DateTime(1676, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Алексей",
-                            GenderId = 1,
                             LastName = "Романов",
                             MiddleName = "Михайлович"
                         });

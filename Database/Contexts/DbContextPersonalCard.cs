@@ -12,6 +12,7 @@ namespace Database.Contexts
 
 
         public virtual DbSet<Person> Persons { get; set; }
+        public virtual DbSet<Gender> Genders { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
@@ -30,10 +31,12 @@ namespace Database.Contexts
         {
             //#region Configurations
             modelBuilder.ApplyConfiguration(new ConfigurationPerson());
+            modelBuilder.ApplyConfiguration(new ConfigurationGender());
             //#endregion
 
             //#region Seeds
             modelBuilder.ApplyConfiguration(new SeedPerson());
+            modelBuilder.ApplyConfiguration(new SeedGender());
             //#endregion
         }
     }

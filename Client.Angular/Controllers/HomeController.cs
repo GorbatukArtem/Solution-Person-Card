@@ -18,13 +18,21 @@ namespace Client.Angular.Controllers
         }
 
         [HttpGet]
-        public async Task<HomeModel> Get()
+        public async Task<IActionResult> Get()
         {
-            var home = await serviceHome.GetAsync();
+            try
+            {
+                var home = await serviceHome.GetAsync();
 
-            _logger.LogInformation("Home was successfully created.");
+                _logger.LogInformation("Home was successfully created.");
 
-            return home;
+                return Ok(home);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

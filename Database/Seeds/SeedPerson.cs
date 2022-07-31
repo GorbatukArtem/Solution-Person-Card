@@ -14,7 +14,9 @@ namespace Database.Seeds
                 FirstName = "Михаил", 
                 MiddleName = "Федорович", 
                 Birth = new DateTime(1596,12,07), 
-                Death = new DateTime(1645,07,13) });
+                Death = new DateTime(1645,07,13),
+                GenderId = 1
+            });
 
             builder.HasData(new Person
             {
@@ -23,7 +25,8 @@ namespace Database.Seeds
                 FirstName = "Алексей",
                 MiddleName = "Михайлович",
                 Birth = new DateTime(1629, 03, 19),
-                Death = new DateTime(1676, 02, 08)
+                Death = new DateTime(1676, 02, 08),
+                GenderId = 1
             });
 
         }
