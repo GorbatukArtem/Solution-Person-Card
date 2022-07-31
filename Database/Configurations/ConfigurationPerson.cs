@@ -8,7 +8,7 @@ namespace Database.Configurations
     {
         public void Configure(EntityTypeBuilder<Person> builder)
         {
-            builder.ToTable("Persons", "dbo.Content");
+            builder.ToTable("Persons", "dbo");
 
             builder.HasKey(p => p.Id);
 
@@ -34,6 +34,12 @@ namespace Database.Configurations
             builder.Property(p => p.Death)
                 .HasColumnType("date")
                 .IsRequired(false);
+
+            builder.HasOne(p => p.Gender)
+                .WithMany(p => p.Persons)
+                .HasForeignKey(p => p.GenderId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

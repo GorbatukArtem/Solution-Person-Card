@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
+
 export class HomeComponent {
   public home: Home = <Home>{};
 
@@ -17,4 +18,17 @@ export class HomeComponent {
 
 interface Home {
   personsTotal: number;
+  aliveTotal: number;
+  deadTotal: number;
+  gendersTotal: number;
+//  personsTotalByGenders: { [key: string]: number; };
+  personsTotalByGenders: KeyValuePair[];
+//  personsTotalByGenders: Map<string, number>;
 }
+
+interface KeyValuePair {
+  key: string;
+  value: string;
+}
+
+//const map: Map<KeyType, ValueType> = new Map();

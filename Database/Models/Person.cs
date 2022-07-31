@@ -8,5 +8,8 @@
         public string? MiddleName { get; set; }
         public DateTime? Birth { get; set; }
         public DateTime? Death { get; set; }
+        public int? GenderId { get; set; }
+
+        public Gender Gender { get; set; }
     }
 }
