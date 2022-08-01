@@ -1,0 +1,5 @@
+<div>Persons total : {{ home.personsTotal }}</div>
+<div>Alive Total : {{ home.aliveTotal }}</div>
+<div>Dead Total : {{ home.deadTotal }}</div>
+<div class="mt-3">Genders Total : {{ home.gendersTotal }}</div>
+<div *ngFor="let gender of home.personsTotalByGenders ">{{ gender.key }} : {{ gender.value }} </div>

@@ -1,8 +1,5 @@
-using Database.Contexts;
-using Logic.Content.Interfaces;
-using Logic.Content.Services;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using Services.Content.Api;
+using Services.Content.Interfaces;
 
 namespace Client.Angular
 {

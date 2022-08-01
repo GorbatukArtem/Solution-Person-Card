@@ -26,9 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Logic.Admin\Logic.Admin.csproj" />
-    <ProjectReference Include="..\Logic.Content\Logic.Content.csproj" />
-    <ProjectReference Include="..\Logic.Security\Logic.Security.csproj" />
+    <ProjectReference Include="..\Services.Content\Services.Content.csproj" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

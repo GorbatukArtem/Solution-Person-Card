@@ -1,6 +1,5 @@
-﻿using Logic.Content.Interfaces;
-using Logic.Content.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Services.Content.Interfaces;
 
 namespace Client.Angular.Controllers
 {
@@ -30,7 +29,7 @@ namespace Client.Angular.Controllers
             }
             catch (Exception)
             {
-
+                _logger.LogError("Home was not successfully created.");
                 throw;
             }
         }
